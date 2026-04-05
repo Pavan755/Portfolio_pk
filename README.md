@@ -1,4 +1,4 @@
-# 🚀 Kimi Agent Portfolio Site
+# 🚀 Portfolio Site
 
 A modern, responsive portfolio website built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. Showcase your projects, skills, and experience to potential recruiters and employers.
 
