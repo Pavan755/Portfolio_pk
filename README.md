@@ -177,48 +177,78 @@ export default function App() {
 
 ## 🚢 Deployment
 
-### **Deploy to Vercel (Recommended)**
+### **Deploy to GitHub Pages (Automated)**
 
-Vercel provides free hosting with automatic deployments.
+This repository is configured with GitHub Actions for automatic deployment to GitHub Pages.
 
-1. **Push to GitHub** (if not done already):
+1. **Ensure your code is pushed to main:**
    ```bash
    git add .
    git commit -m "Deploy portfolio"
    git push origin main
    ```
 
-2. **Deploy on Vercel:**
-   - Go to [vercel.com](https://vercel.com)
-   - Sign up with GitHub
-   - Click "New Project"
-   - Select your `Portfolio_pk` repository
-   - Vercel auto-detects Vite settings
-   - Click "Deploy"
-   - ✅ Your site is live! (URL: `your-project.vercel.app`)
+2. **GitHub Actions will automatically:**
+   - Install dependencies
+   - Build your project
+   - Deploy to GitHub Pages
+   - ✅ Your site is live at: `https://Pavan755.github.io/Portfolio_pk/`
 
-### **Deploy to Netlify**
+3. **Track deployment status:**
+   - Go to your repository → **Actions** tab
+   - Watch the workflow run in real-time
+   - See deployment success/failure logs
 
-Similar process:
+**Note:** The first deployment may take 1-2 minutes. Subsequent deployments are faster.
+
+---
+
+### **Deploy to Vercel (Alternative - Recommended for custom domains)**
+
+Vercel provides free hosting with better performance and custom domain support.
+
+1. Go to [vercel.com](https://vercel.com)
+2. Sign up with GitHub
+3. Click "New Project"
+4. Select your `Portfolio_pk` repository
+5. Change build settings:
+   - **Root Directory:** `app`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+6. Click "Deploy"
+7. ✅ Your site is live at: `https://your-project.vercel.app`
+
+---
+
+### **Deploy to Netlify (Alternative)**
+
 1. Go to [netlify.com](https://netlify.com)
 2. Connect your GitHub repository
-3. Click "Deploy" (auto-configures for Vite)
-4. Get your live URL
+3. Set build settings:
+   - **Base directory:** `app`
+   - **Build command:** `npm run build`
+   - **Publish directory:** `dist`
+4. Click "Deploy"
+5. Get your live URL
+
+---
 
 ### **Custom Domain (Optional)**
 
 1. Buy a domain from **Namecheap**, **GoDaddy**, or **Cloudflare**
-2. Add DNS records (instructions provided by Vercel/Netlify)
-3. Connect domain in deployment platform settings
+2. Point domain to your deployment platform:
+   - **GitHub Pages:** Add CNAME record
+   - **Vercel/Netlify:** Follow platform-specific instructions
+3. Enable HTTPS (auto-configured on all platforms)
 
 ---
 
 ## 📧 How Recruiters Can Use This
 
 ### **Share Your Live Portfolio**
-- **Deployed URL:** Share the live link (e.g., `https://your-project.vercel.app`)
+- **Live Demo:** `https://Pavan755.github.io/Portfolio_pk/` (GitHub Pages)
 - **GitHub Repository:** [Portfolio_pk](https://github.com/Pavan755/Portfolio_pk)
-- **Custom Domain:** Add your personal domain for a professional touch
+- **Alternative Hosting:** Deploy on [Vercel](https://vercel.com) or [Netlify](https://netlify.com) for custom domains
 
 ### **Getting the Code**
 
@@ -230,8 +260,15 @@ Recruiters can:
    npm install
    npm run dev
    ```
+   - Opens at `http://localhost:5173/`
+   - Perfect for testing locally before deploying
 
-2. **Or download as ZIP** and follow the installation steps above
+2. **Or download as ZIP** from the GitHub repository and follow the same steps above
+
+3. **Review the code:**
+   - Check `src/App.tsx` for main component
+   - Explore `src/components/` for all UI implementations
+   - See `tailwind.config.js` for styling customizations
 
 ---
 
@@ -261,6 +298,26 @@ See `package.json` for the complete list.
 
 ## 🐛 Troubleshooting
 
+### **GitHub Pages not loading?**
+
+**Issue:** Site returns 404 or blank page
+**Solution:** 
+1. Verify `vite.config.ts` has `base: '/Portfolio_pk/'` (case-sensitive!)
+2. Check GitHub Actions workflow succeeded (go to Actions tab)
+3. Enable GitHub Pages in repository Settings:
+   - Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: `gh-pages` (created by GitHub Actions)
+   - Save
+4. Wait 2-5 minutes for DNS to propagate
+5. Clear browser cache (Ctrl+F5) and refresh
+
+**Check deployment logs:**
+```bash
+# View GitHub Actions logs
+# Repository → Actions → Deploy to GitHub Pages (latest run)
+```
+
 ### **Port 5173 already in use?**
 ```bash
 npm run dev -- --port 3000
@@ -277,6 +334,12 @@ npm install
 npm run build
 ```
 Checks for compilation errors.
+
+### **Build fails on GitHub Actions?**
+1. Check workflow logs (Actions tab)
+2. Verify TypeScript compiles locally: `npm run build`
+3. Ensure all imports use correct paths (use `@/` alias)
+4. Check for missing dependencies in `package.json`
 
 ---
 
