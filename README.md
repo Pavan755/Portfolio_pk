@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. Showcase your projects, skills, and experience to potential recruiters and employers.
 
+🌐 **[Live Demo](https://portfolio-pk-xi.vercel.app/)** | 📦 **[GitHub Repo](https://github.com/Pavan755/Portfolio_pk)** | 💻 **[View Source](https://github.com/Pavan755/Portfolio_pk)**
+
 ---
 
 ## ✨ Features
@@ -177,9 +179,42 @@ export default function App() {
 
 ## 🚢 Deployment
 
-### **Deploy to GitHub Pages (Automated)**
+### **🎯 Current Deployment: Vercel (Recommended)**
 
-This repository is configured with GitHub Actions for automatic deployment to GitHub Pages.
+Your portfolio is now **live on Vercel** at: **[https://portfolio-pk-xi.vercel.app/](https://portfolio-pk-xi.vercel.app/)**
+
+**What you get:**
+- ✅ Fast global CDN
+- ✅ Automatic deployments on git push
+- ✅ Zero-downtime updates
+- ✅ HTTPS enabled
+- ✅ Free hosting tier
+- ✅ Custom domain support
+
+---
+
+### **How to Deploy / Update Your Portfolio**
+
+1. **Push changes to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Update portfolio"
+   git push origin main
+   ```
+
+2. **Vercel automatically deploys:**
+   - Monitor deployment at: [Vercel Dashboard](https://vercel.com/dashboard)
+   - Your live site updates within 1-2 minutes
+   - No additional action needed!
+
+3. **View your live site:**
+   - **Primary URL:** https://portfolio-pk-xi.vercel.app/
+
+---
+
+### **Alternative: Deploy to GitHub Pages**
+
+If you prefer GitHub Pages hosting:
 
 1. **Ensure your code is pushed to main:**
    ```bash
@@ -188,87 +223,71 @@ This repository is configured with GitHub Actions for automatic deployment to Gi
    git push origin main
    ```
 
-2. **GitHub Actions will automatically:**
-   - Install dependencies
-   - Build your project
-   - Deploy to GitHub Pages
-   - ✅ Your site is live at: `https://Pavan755.github.io/Portfolio_pk/`
-
-3. **Track deployment status:**
-   - Go to your repository → **Actions** tab
-   - Watch the workflow run in real-time
-   - See deployment success/failure logs
-
-**Note:** The first deployment may take 1-2 minutes. Subsequent deployments are faster.
+2. **GitHub Actions will automatically build & deploy** when configured
+   - Your site will be at: `https://Pavan755.github.io/Portfolio_pk/`
+   - Check **Actions** tab to track deployment status
 
 ---
 
-### **Deploy to Vercel (Alternative - Recommended for custom domains)**
+### **Set Up Custom Domain (Optional)**
 
-Vercel provides free hosting with better performance and custom domain support.
+Want to use your own domain? Follow these steps:
 
-1. Go to [vercel.com](https://vercel.com)
-2. Sign up with GitHub
-3. Click "New Project"
-4. Select your `Portfolio_pk` repository
-5. Change build settings:
-   - **Root Directory:** `app`
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-6. Click "Deploy"
-7. ✅ Your site is live at: `https://your-project.vercel.app`
+1. **Buy a domain** from [Namecheap](https://namecheap.com), [GoDaddy](https://godaddy.com), or [Cloudflare](https://cloudflare.com)
 
----
+2. **Connect to Vercel:**
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Select your project
+   - Settings → Domains
+   - Add your custom domain
+   - Follow DNS instructions
 
-### **Deploy to Netlify (Alternative)**
+3. **HTTPS is automatically configured** - no extra steps needed!
 
-1. Go to [netlify.com](https://netlify.com)
-2. Connect your GitHub repository
-3. Set build settings:
-   - **Base directory:** `app`
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-4. Click "Deploy"
-5. Get your live URL
+Example: Your portfolio URL becomes `https://yourname.com` instead of Vercel's default
 
 ---
-
-### **Custom Domain (Optional)**
-
-1. Buy a domain from **Namecheap**, **GoDaddy**, or **Cloudflare**
-2. Point domain to your deployment platform:
-   - **GitHub Pages:** Add CNAME record
-   - **Vercel/Netlify:** Follow platform-specific instructions
-3. Enable HTTPS (auto-configured on all platforms)
 
 ---
 
 ## 📧 How Recruiters Can Use This
 
-### **Share Your Live Portfolio**
-- **Live Demo:** `https://Pavan755.github.io/Portfolio_pk/` (GitHub Pages)
-- **GitHub Repository:** [Portfolio_pk](https://github.com/Pavan755/Portfolio_pk)
-- **Alternative Hosting:** Deploy on [Vercel](https://vercel.com) or [Netlify](https://netlify.com) for custom domains
+### **View Your Live Portfolio**
+- 🌐 **Live Site:** [https://portfolio-pk-xi.vercel.app/](https://portfolio-pk-xi.vercel.app/)
+- 📦 **GitHub Repository:** [Portfolio_pk](https://github.com/Pavan755/Portfolio_pk)
+- ⭐ **Star this repo** if you find it useful!
 
-### **Getting the Code**
+### **Getting Started with the Code**
 
-Recruiters can:
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Pavan755/Portfolio_pk.git
-   cd Portfolio_pk/app
-   npm install
-   npm run dev
-   ```
-   - Opens at `http://localhost:5173/`
-   - Perfect for testing locally before deploying
+Recruiters and developers can clone and run locally:
 
-2. **Or download as ZIP** from the GitHub repository and follow the same steps above
+```bash
+git clone https://github.com/Pavan755/Portfolio_pk.git
+cd Portfolio_pk/app
+npm install
+npm run dev
+```
+- Opens automatically at `http://localhost:5173/`
+- Perfect for testing and exploring locally
 
-3. **Review the code:**
-   - Check `src/App.tsx` for main component
-   - Explore `src/components/` for all UI implementations
-   - See `tailwind.config.js` for styling customizations
+### **Understanding the Codebase**
+
+**Key Files to Review:**
+| File | Purpose |
+|------|---------|
+| `src/App.tsx` | Main portfolio component |
+| `src/components/ui/` | 40+ reusable UI components |
+| `src/App.css` | Portfolio-specific styles |
+| `tailwind.config.js` | Design system & theme configuration |
+| `vite.config.ts` | Build tool configuration |
+| `package.json` | Dependencies & scripts |
+
+**Architecture Highlights:**
+- ✅ Clean React component structure
+- ✅ Full TypeScript type safety
+- ✅ Responsive design with Tailwind CSS
+- ✅ Modular UI component library
+- ✅ Modern build setup with Vite
 
 ---
 
@@ -351,9 +370,9 @@ This project is open source and available under the MIT License.
 
 ## 📞 Contact & Links
 
-- **GitHub:** [Pavan755](https://github.com/Pavan755)
+- **GitHub Profile:** [@Pavan755](https://github.com/Pavan755)
 - **Repository:** [Portfolio_pk](https://github.com/Pavan755/Portfolio_pk)
-- **Live Demo:** [your-deployed-url.vercel.app]
+- **🌐 Live Portfolio:** [https://portfolio-pk-xi.vercel.app/](https://portfolio-pk-xi.vercel.app/)
 
 ---
 
