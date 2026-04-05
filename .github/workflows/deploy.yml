@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -19,12 +20,10 @@ jobs:
           cache-dependency-path: 'app/package-lock.json'
 
       - name: Install dependencies
-        working-directory: ./app
-        run: npm ci
+        run: cd app && npm ci
 
       - name: Build project
-        working-directory: ./app
-        run: npm run build
+        run: cd app && npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
