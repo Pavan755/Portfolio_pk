@@ -1,0 +1,186 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(209, 226, 157, 0.3);
+  color: #fff;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid #d1e29d;
+  outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+  background: linear-gradient(135deg, #090909 0%, #1a1a1a 100%);
+}
+
+/* Button hover lift effect */
+button {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Card hover effects */
+.glass {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass:hover {
+  transform: translateY(-2px);
+}
+
+/* Link underline animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d1e29d;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Gradient text animation */
+.text-gradient {
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Floating animation variations */
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Pulse glow variations */
+.animate-pulse-glow-lime {
+  animation: pulse-glow-lime 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-lime {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(209, 226, 157, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(209, 226, 157, 0.6);
+  }
+}
+
+.animate-pulse-glow-orange {
+  animation: pulse-glow-orange 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-orange {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(247, 120, 78, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(247, 120, 78, 0.6);
+  }
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-children.active > *:nth-child(1) { animation: slide-up 0.6s 0.1s forwards; }
+.stagger-children.active > *:nth-child(2) { animation: slide-up 0.6s 0.2s forwards; }
+.stagger-children.active > *:nth-child(3) { animation: slide-up 0.6s 0.3s forwards; }
+.stagger-children.active > *:nth-child(4) { animation: slide-up 0.6s 0.4s forwards; }
+.stagger-children.active > *:nth-child(5) { animation: slide-up 0.6s 0.5s forwards; }
+.stagger-children.active > *:nth-child(6) { animation: slide-up 0.6s 0.6s forwards; }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .animate-float,
+  .animate-float-slow,
+  .animate-float-fast {
+    animation: none;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .grain-overlay::before {
+    display: none;
+  }
+  
+  nav,
+  .glass {
+    background: white !important;
+    color: black !important;
+  }
+}
